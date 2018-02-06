@@ -1,12 +1,17 @@
+package Level_1_Basic;
 
-public class ConditionalsTwo 
+public class Iteration 
 {
 	public static void main(String[] args) 
-	{	
-		int n1 = 2;
+	{
+		int n1 = 4;
 		int n2 = 6;
 		int n3 = returnMethod(n1, n2);
-		System.out.println(n3);
+		
+		for(int i = 0; i < 10; i++)
+		{
+			System.out.println(returnMethod(n3, i*i));
+		}
 	}
 	public static int returnMethod(int n1, int n2)
 	{

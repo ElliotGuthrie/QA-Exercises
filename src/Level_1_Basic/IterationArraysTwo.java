@@ -1,12 +1,10 @@
+package Level_1_Basic;
+
 import java.util.Random;
 
 public class IterationArraysTwo 
 {
 	public static void main(String[] args)
-	{
-		anArray();
-	}
-	public static void anArray()
 	{
 		int[] arrayOfInts = new int[10];
 		Random randomNumberGenerator = new Random();
