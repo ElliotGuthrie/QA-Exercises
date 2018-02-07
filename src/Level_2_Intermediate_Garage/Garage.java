@@ -107,7 +107,7 @@ public class Garage
 			}
 			else
 			{
-				System.out.println("The inputted vehicle type is invalid");
+				System.out.println("The inputted vehicle type is invalid.");
 			}
 		}
 	}
