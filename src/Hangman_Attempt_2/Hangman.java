@@ -29,7 +29,7 @@ public class Hangman
 		wordReader.close();
 		
 		hangman.input = new Scanner(System.in);
-		hangman.livesLeft = 8;
+		hangman.livesLeft = 10;
 		hangman.diffChoice = 0;
 		
 		System.out.println("██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗\n" + 
@@ -165,15 +165,40 @@ public class Hangman
 			
 			if(hangman.livesLeft <= 0)
 			{ 
-				System.out.println("The word was: " + chosenWord);
-                	System.out.println("Oh my God, you killed Kenny! Game Over!"); 
+				System.out.println("The word was: " + chosenWord + "\n");
+                	System.out.println("Oh my God, you killed Kenny! Game Over!\n");
+                	System.out.println(" ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ \n" + 
+                			"██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗\n" + 
+                			"██║  ███╗███████║██╔████╔██║█████╗      ██║   ██║██║   ██║█████╗  ██████╔╝\n" + 
+                			"██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗\n" + 
+                			"╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║\n" + 
+                			" ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝\n" + 
+                			"                                                                          ");
                 	hangman.isDead = true;
             }
 			
 			if(Arrays.equals(letters, secretWord))
 			{ 
-                System.out.println("\nThe word was: " + chosenWord); 
-                System.out.println("\nCongratulations! You got it right and saved the world! Go you!"); 
+                System.out.println("\nThe word was: " + chosenWord + "\n"); 
+                System.out.println("\nCongratulations! You got it right and saved the world! Go you!\n"); 
+                System.out.println("                                   .''.       \n" + 
+                		"       .''.      .        *''*    :_\\/_:     . \n" + 
+                		"      :_\\/_:   _\\(/_  .:.*_\\/_*   : /\\ :  .'.:.'.\n" + 
+                		"  .''.: /\\ :   ./)\\   ':'* /\\ * :  '..'.  -=:o:=-\n" + 
+                		" :_\\/_:'.:::.    ' *''*    * '.\\'/.' _\\(/_'.':'.'\n" + 
+                		" : /\\ : :::::     *_\\/_*     -= o =-  /)\\    '  *\n" + 
+                		"  '..'  ':::'     * /\\ *     .'/.\\'.   '\n" + 
+                		"      *            *..*         :\n" + 
+                		"       *\n" + 
+                		"        *");
+                System.out.println("██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗\n" + 
+                		"╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║\n" + 
+                		" ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║██╔██╗ ██║\n" + 
+                		"  ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║██║╚██╗██║\n" + 
+                		"   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║\n" + 
+                		"   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝\n" + 
+                		"                                                      ");
+                
                 break; 
             }
 			hangman.gallows();
@@ -212,6 +237,26 @@ public class Hangman
 		{
 			default:
 				System.out.println("");
+				break;
+			case 9:
+				System.out.println("" + 
+						"             \n" + 
+						"              \n" + 
+						"              \n" + 
+						"             \n" + 
+						"         \n" + 
+						"       ___________\n" + 
+						"       ||       ||\n");
+				break;
+			case 8:
+				System.out.println("" + 
+						"         |   \n" + 
+						"         |     \n" + 
+						"         |     \n" + 
+						"         |    \n" + 
+						"         |\n" + 
+						"       __|________\n" + 
+						"       ||       ||\n");
 				break;
 			case 7:
 				System.out.println("         _______\n" + 
