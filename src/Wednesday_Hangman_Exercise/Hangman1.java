@@ -3,7 +3,7 @@ package Wednesday_Hangman_Exercise;
 import java.io.*;
 import java.util.*;
 
-public class Hangman 
+public class Hangman1 
 {
 	ArrayList<String> easyList;
 	ArrayList<String> mediumList;
@@ -15,7 +15,7 @@ public class Hangman
 	
 	public static void main(String[] args) throws IOException
 	{
-		Hangman hangman = new Hangman();
+		Hangman1 hangman = new Hangman1();
 		
 		File words = new File("src/words.txt");
 		Scanner wordReader = new Scanner(words);
@@ -65,6 +65,7 @@ public class Hangman
 		
 		Random random = new Random();
 		String chosenWord = "";
+		String selectedLetters = "";
 		
 		if(hangman.diffChoice == 1)
 		{
@@ -82,41 +83,26 @@ public class Hangman
 			chosenWord = hangman.hardList.get(n).toUpperCase();
 		}
 		
-		//System.out.println(chosenWord);
-		String secretWord = chosenWord.replaceAll("\\p{P}", "").replaceAll("[a-zA-Z]", "_ ");
-		//System.out.println(secretWord);
+		chosenWord = chosenWord.replaceAll(".(?=.)", "$0 ");
+		System.out.println(chosenWord);
+		String secretWord = chosenWord.replaceAll("\\p{P}", "").replaceAll("[a-zA-Z]", "_");
+		//if(selectedLetters ...args...args...args...args...);
+		{
+			
+		}
+		System.out.println(secretWord);
 		
 		System.out.println("The word to guess is: " + secretWord);
-		System.out.println("You have " + hangman.livesLeft + " lives left to figure it out!");
+		System.out.println("You have " + hangman.livesLeft + " lives to figure it out!");
 		
 		hangman.isDead = false;
-		//trying to replace the secret word underscores with the guessed letters
+		
 		while(!hangman.isDead)
 		{
-			String guess = hangman.input.nextLine();
-			
-			if(guess.length() > 1 || guess.length() == 0)
-			{
-				System.out.println("Please input a single letter at a time.");
-				continue;
-			}
-			else
-			{
-				char charGuess = Character.toUpperCase(guess.charAt(0));
-				
-				for(int i = 0; i < chosenWord.length(); i++ )
-				{
-					chosenWord.charAt(i);
-					int replace = chosenWord.indexOf(charGuess);
-					
-					while(replace != -1)   
-					{
-					   secretWord[replace] = charGuess;
-					   replace = chosenWord.indexOf(charGuess, replace);  
-					}
-				}
-			}
-		}
+			char guess = hangman.input.nextLine().toUpperCase().charAt(0);
+		}		
+		
+		System.out.println("Letters guessed so far are: " + selectedLetters);
 	}
 	private static int setUp(Scanner input)
 	{
@@ -143,8 +129,27 @@ public class Hangman
 			return 0;
 		}
 	}
+	private static void guessMethod(String chosenWord, String secretWord, char charGuess)
+	{
+		for(int i = 0; i < chosenWord.length(); i++ )
+		{
+			chosenWord.charAt(i);
+			int replace = chosenWord.indexOf(charGuess);
+			
+			while(replace != -1)   
+			{
+				//secretWord.charAt(replace) = charGuess;
+				replace = chosenWord.indexOf(charGuess, replace);  
+			}
+		}
+	}
+	public static void replaceChar(String str,String target){
+        String result = str.replaceAll("_", target);
+        System.out.println(result);
+    }
 }
-		
+		//take chosen word - loop for every letter not in letters guessed use _ else use ABCDEF line 86
+		//guessed letter array - iterate the chosen word to replace all non guessed letters with "_ " and all guessed letter swith ABCD
 		//inputting correct letter removes all instances of _ from the hidden word
 		//inputting incorrect letter adds a frame to the hangman
 		//game over when word completed or man hanged
