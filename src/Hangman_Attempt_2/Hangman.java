@@ -103,7 +103,7 @@ public class Hangman
 			System.out.println("\n" + "The word to guess is: ");
 			for(int i = 0; i < letters.length; i++)
 			{
-				System.out.print(secretWord[i]);
+				System.out.print(secretWord[i] + " ");
 			}
 		
 			System.out.println("\n" + "Lives Left: " + hangman.livesLeft +"\nYou have already guessed: " + hangman.guessed + "\nInput your next guess: ");  

@@ -12,6 +12,7 @@ public class PaintCalculations
 	}
 	public static void main(String[] args)
 	{
+		PaintCalculations paintCalc = new PaintCalculations();
 		int roomSize = 40;
 		
 		PaintProduct paint1 = new PaintProduct("CheapoMax", 20, 19.99, 10);
@@ -28,12 +29,12 @@ public class PaintCalculations
 	{
 		this.paints.add(paints);
 	}
-	public void wastageCalc(int roomSize)
+	public void wastageCalc(int roomSize, int paintVolume, int paintCoverage)
 	{
 		//Litres - roomSize/coverage = wastage
 		for(int i = 0; i < paints.size(); i++ )
 		{
-			
+			paintVolume();
 		}
 	}
 }

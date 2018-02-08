@@ -2,10 +2,10 @@ package Level_2_Intermediate_PaintWizard;
 
 public class PaintProduct 
 {
-	private String paintName;
-	private int paintVolume;
-	private double paintCost;
-	private int paintCoverage;
+	public String paintName;
+	public int paintVolume;
+	public double paintCost;
+	public int paintCoverage;
 
 	public PaintProduct(String paintName, int paintVolume, double paintCost, int paintCoverage)
 	{
