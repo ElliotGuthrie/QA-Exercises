@@ -2,7 +2,7 @@ package Level_2_Intermediate_PaintWizard;
 
 import java.util.*;
 
-public class PaintCalculations 
+public class PaintCalculations
 {
 	private ArrayList<PaintProduct> paints;
 	
@@ -12,14 +12,12 @@ public class PaintCalculations
 	}
 	public static void main(String[] args)
 	{
-		PaintCalculations paintCalc = new PaintCalculations();
+		PaintCalculations paintCalcs = new PaintCalculations();
 		int roomSize = 40;
 		
 		PaintProduct paint1 = new PaintProduct("CheapoMax", 20, 19.99, 10);
 		PaintProduct paint2 = new PaintProduct("AverageJoes", 15, 17.99, 11);
 		PaintProduct paint3 = new PaintProduct("DuluxourousPaints", 10, 25.00, 20);
-		
-		PaintCalculations paintCalcs = new PaintCalculations();
 		
 		paintCalcs.addPaint(paint1);
 		paintCalcs.addPaint(paint2);
@@ -31,10 +29,10 @@ public class PaintCalculations
 	}
 	public void wastageCalc(int roomSize, int paintVolume, int paintCoverage)
 	{
-		//Litres - roomSize/coverage = wastage
 		for(int i = 0; i < paints.size(); i++ )
 		{
-			paintVolume();
+			double wastage = paintVolume - (roomSize / paintCoverage);
+			System.out.println("For a room of size " + roomSize + "m^2, " + paintName + " will waste " + wastage + "L of paint.");
 		}
 	}
 }
