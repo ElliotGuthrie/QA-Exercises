@@ -1,4 +1,4 @@
-package Shafeeq;
+package Shafeeq_SchoolResults;
 
 public class Results2
 {

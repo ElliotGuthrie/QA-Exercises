@@ -1,4 +1,4 @@
-package DigitsToWords;
+package Shafeeq_DigitsToWords;
 
 public class DigitsToWords {
 	private int input;
