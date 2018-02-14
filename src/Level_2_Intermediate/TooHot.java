@@ -11,16 +11,10 @@ public class TooHot
 	public static String tempReturn(int temp, boolean isSummer)
 	{
 		if(60 <= temp && temp <= 100 && isSummer)
-		{
 			return "True";
-		}
-		else if(60 <= temp && temp <= 90 && !isSummer)
-		{
+		if(60 <= temp && temp <= 90 && !isSummer)
 			return "True";
-		}
 		else
-		{
 			return "False";
-		}
 	}
 }
