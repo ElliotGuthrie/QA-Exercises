@@ -15,8 +15,15 @@ public class EventCancel implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		box1.setText("");
-		number = 0;
-		Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+		try
+		{
+			box1.setText("");
+			number = 0;
+			Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+		}
+		catch(Exception exc)
+		{
+			box1.setText("Invalid calculation.");
+		}
 	}
 }

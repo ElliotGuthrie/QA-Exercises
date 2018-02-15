@@ -14,62 +14,81 @@ public class EventCalc implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		float number = 0;
+		double number = 0;
 		Button buttonpressed = (Button)e.getSource();
 		String input = buttonpressed.getLabel();
 		
-		switch(input)
+		try
 		{
-			case "+":
-				Calculator.numberPlus = Float.parseFloat(box1.getText());
-				box1.setText("");
-				break;
-			case "-":
-				Calculator.numberMinus = Float.parseFloat(box1.getText());
-				box1.setText("");
-				break;
-			case "x":
-				Calculator.numberTimes = Float.parseFloat(box1.getText());
-				box1.setText("");
-				break;
-			case "÷":
-				Calculator.numberDivide = Float.parseFloat(box1.getText());
-				box1.setText("");
-				break;
-			case "=":
-				if(Calculator.numberPlus != 0)
-				{
-					number = Float.parseFloat(box1.getText());
-					box1.setText(Float.toString(Calculator.numberPlus + number));
-					Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+			switch(input)
+			{
+				case "+":
+					Calculator.numberPlus = Double.parseDouble(box1.getText());
+					box1.setText("");
 					break;
-				}
-				if(Calculator.numberMinus != 0)
-				{
-					number = Float.parseFloat(box1.getText());
-					box1.setText(Float.toString(Calculator.numberMinus - number));
-					Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+				case "-":
+					Calculator.numberMinus = Double.parseDouble(box1.getText());
+					box1.setText("");
 					break;
-				}
-				if(Calculator.numberTimes != 0)
-				{
-					number = Float.parseFloat(box1.getText());
-					box1.setText(Float.toString(Calculator.numberTimes * number));
-					Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+				case "x":
+					Calculator.numberTimes = Double.parseDouble(box1.getText());
+					box1.setText("");
 					break;
-				}
-				if(Calculator.numberDivide != 0)
-				{
-					number = Float.parseFloat(box1.getText());
-					box1.setText(Float.toString(Calculator.numberDivide / number));
-					Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+				case "÷":
+					Calculator.numberDivide = Double.parseDouble(box1.getText());
+					box1.setText("");
 					break;
-				}
-				else
-				{
-					box1.setText("Invalid calculation.");
-					break;
-				}		
+				case "=":
+					if(Calculator.numberPlus != 0)
+					{
+						number = Double.parseDouble(box1.getText());
+						box1.setText(Double.toString(Calculator.numberPlus + number));
+						Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+						break;
+					}
+					if(Calculator.numberMinus != 0)
+					{
+						number = Double.parseDouble(box1.getText());
+						box1.setText(Double.toString(Calculator.numberMinus - number));
+						Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+						break;
+					}
+					if(Calculator.numberTimes != 0)
+					{
+						number = Double.parseDouble(box1.getText());
+						box1.setText(Double.toString(Calculator.numberTimes * number));
+						Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+						break;
+					}
+					if(Calculator.numberDivide != 0)
+					{
+						number = Double.parseDouble(box1.getText());
+						box1.setText(Double.toString(Calculator.numberDivide / number));
+						Calculator.numberPlus = Calculator.numberMinus = Calculator.numberTimes = Calculator.numberDivide = 0;
+						break;
+					}
+					else
+					{
+						box1.setText("Invalid calculation.");
+						break;
+					}
+				case "√":
+					if(Double.parseDouble(box1.getText()) >= 0)
+					{
+						number = Double.parseDouble(box1.getText());
+						box1.setText(Double.toString(Math.sqrt(number)));
+						break;
+					}
+					else
+					{
+						box1.setText("Invalid calculation.");
+						break;
+					}
+			}
+		}
+		catch(NumberFormatException exc)
+		{
+			box1.setText("Invalid calculation.");
 		}
 	}
 }

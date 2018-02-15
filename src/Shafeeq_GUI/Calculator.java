@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Calculator 
 {
-	static float number, numberPlus, numberMinus, numberTimes, numberDivide;
+	static double number, numberPlus, numberMinus, numberTimes, numberDivide;
 	
 	public static void main(String[] args) 
 	{
@@ -16,7 +16,7 @@ public class Calculator
 		p2 = new Panel();
 		p3 = new Panel();
 		
-		Button B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, Bplus, Bminus, Btimes, Bdivide, Bequals, Bcancel;
+		Button B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, Bplus, Bminus, Btimes, Bdivide, Bequals, Bcancel, Bdecimal, Broot;
 		
 		B0 = new Button("0");
 		B1 = new Button("1");
@@ -34,23 +34,20 @@ public class Calculator
 		Bdivide = new Button("÷");
 		Bequals = new Button("=");
 		Bcancel = new Button("CE");
+		Bdecimal = new Button(".");
+		Broot = new Button("√");
 		
 		TextField T1;
 		
 		T1 = new TextField(40);
 		T1.setEditable(false);
-		
-		Label L1, L2;
-		
-		L1 = new Label("");
-		L2 = new Label("");
 
 		EventNumber Enum = new EventNumber(T1);
 		EventCalc Ecalc = new EventCalc(T1);
 		EventCancel Ecanc = new EventCancel(T1);
 		
-		addToEnum(Enum, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9);
-		addToEcalc(Ecalc, Bplus, Bminus, Btimes, Bdivide, Bequals);
+		addToEnum(Enum, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, Bdecimal);
+		addToEcalc(Ecalc, Bplus, Bminus, Btimes, Bdivide, Bequals, Broot);
 		addToEcanc(Ecanc, Bcancel);
 		
 		FlowLayout F = new FlowLayout();
@@ -65,43 +62,24 @@ public class Calculator
 		p2.setLayout(G44);
 		p3.setLayout(G21);
 		
-		p1.add(T1);
-		
-		p2.add(B7);
-		p2.add(B8);
-		p2.add(B9);
-		p2.add(Bdivide);
-		p2.add(B4);
-		p2.add(B5);
-		p2.add(B6);
-		p2.add(Btimes);
-		p2.add(B1);
-		p2.add(B2);
-		p2.add(B3);
-		p2.add(Bminus);
-		p2.add(L1);
-		p2.add(B0);
-		p2.add(L2);
-		p2.add(Bplus);
-		
-		p3.add(Bcancel);
-		p3.add(Bequals);
+		panelAddAll(p1, T1);	
+		panelAddAll(p2, B7, B8, B9, Bdivide, B4, B5, B6, Btimes, B1, B2, B3, Bminus, Bdecimal, B0, Broot, Bplus);
+		panelAddAll(p3, Bcancel, Bequals);
 		
 		win.setSize(350, 320);
-		
 		win.setVisible(true);
 		
 	}
 	public static void addToEnum(EventNumber Enum, Button... buttons)
 	{	
-		for (Button b : buttons) 
+		for(Button b : buttons) 
 		{
 			b.addActionListener(Enum);
 		}
 	}
 	public static void addToEcalc(EventCalc Ecalc, Button... buttons)
 	{
-		for (Button b : buttons) 
+		for(Button b : buttons) 
 		{
 			b.addActionListener(Ecalc);
 		}
@@ -109,5 +87,12 @@ public class Calculator
 	public static void addToEcanc(EventCancel Ecanc, Button Bcanc)
 	{
 			Bcanc.addActionListener(Ecanc);
+	}
+	public static void panelAddAll(Panel p, Component... components) 
+	{
+		for(Component c : components)
+		{
+			p.add(c);
+		}
 	}
 }
