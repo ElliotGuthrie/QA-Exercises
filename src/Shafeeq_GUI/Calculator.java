@@ -2,13 +2,17 @@ package Shafeeq_GUI;
 
 import java.awt.*;
 
+import javax.swing.JFrame;
+import javax.swing.UIManager;
+
 public class Calculator 
 {
 	static double number, numberPlus, numberMinus, numberTimes, numberDivide;
 	
 	public static void main(String[] args) 
 	{
-		Frame win = new Frame("Jesus Christ, it's Jason Bourne the calculator!");
+		JFrame win = new JFrame("Jesus Christ, it's Jason Bourne the calculator!");
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Panel p1, p2, p3;
 		
@@ -65,6 +69,14 @@ public class Calculator
 		panelAddAll(p1, T1);	
 		panelAddAll(p2, B7, B8, B9, Bdivide, B4, B5, B6, Btimes, B1, B2, B3, Bminus, Bdecimal, B0, Broot, Bplus);
 		panelAddAll(p3, Bcancel, Bequals);
+		
+	    try 
+	    { 
+	        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); 
+	    } 
+	    catch(Exception exc){ 
+	    }
+	    new Calculator(); 
 		
 		win.setSize(350, 320);
 		win.setVisible(true);
